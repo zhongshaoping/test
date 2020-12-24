@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="slider">
+      <swiper class="swiper" autoplay="2000" indicator-dots="true" indicator-color="red">
+        <swiper-item wx:for="{{list}}" wx:key="index">
+          <image src="{{item.img}}"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="grid">
+      <view class="content" wx:for="{{iconList}}" wx:key="index">
+        <image src="{{item.img}}" bindtap="jump" data-id="{{item.id}}"></image>
+        <view>{{item.title}}</view>
+      </view>
+    </view>
+</view>

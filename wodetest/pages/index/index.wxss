@@ -1,0 +1,39 @@
+/**index.wxss**/
+
+.slider{
+  width:100%;
+  
+}
+.swiper{
+  height:390rpx;
+  width:100%;
+}
+.swiper image{
+  width:100%;
+ 
+}
+.grid{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  width:100%;
+}
+.grid .content{
+  width:33.3333%;
+  border-right:1rpx solid #ccc;
+  border-bottom:1rpx solid#ccc;
+  box-sizing:border-box;
+}
+.grid .content:nth-child(3n){
+  border-right:0px;
+}
+.grid .content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.grid .content image{
+  width:102rpx;
+  height:102rpx;
+}

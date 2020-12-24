@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  
+    div.content div.header input{
+        width:100%;
+        height:30px;
+        border:1px solid #aaa;
+    }
+    div.content div.header input:focus{
+        border:1px solid #aaa;
+        background-color:#fff;
+        outline: 0;
+       
+    }
+    div.content div.body{
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    div.content div.body div,div.content div.footer{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        height:40px;
+        border:1px solid #aaa;
+        border-bottom:0px;
+    }
+    div.content div.body div:last-child{
+        border-bottom:1px solid #aaa;
+    }
+    div.content div.body div label,div.footer  label{
+        margin-left:10px;
+    }
+    div.content div.body div label span,div.footer  label span{
+        margin-left:10px;
+    }
+    div.content div.body div button{
+        background-color:red;
+        color:#fff;
+        width:50px;
+        border-radius:3px;
+        border:1px solid red;
+        margin-right:10px;
+    }
+    div.content div.footer{
+        border-bottom:1px solid #aaa;
+    }
+    div.content div.footer button{
+        background-color:red;
+        color:#fff;
+        border-radius:3px;
+        border:1px solid red;
+        margin-right:10px;
+    }
+</style>
+<body>
+    <div class="content">
+        <div class="header">
+            <input type="text" placeholder="请输入你的任务名称，按回车键确认" id="d1">
+        </div>
+        <div class="body">
+            <div>
+                <label><input type="checkbox"><span>aaaa</span></label>
+                <button>删除</button>
+            </div>
+            
+            <div>
+                <label><input type="checkbox"><span>aaaa</span></label>
+                <button>删除</button>
+            </div>
+        </div>
+        <div class="footer">
+            <label><input type="checkbox"><span>已完成1/全部4</span></label>
+            <button>删除已完成任务</button>
+        </div>
+    </div>
+</body>
+
+</html>

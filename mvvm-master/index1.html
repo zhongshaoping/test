@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="t">测试</div>
+    <ul id="m">
+        <li>test1</li>
+        <li>test2</li>
+        <li>test3</li>
+        <li>test4</li>
+    </ul>
+    <script>
+        //1.[].slice.call(lis)将伪数组转换为数组
+        var lis=document.getElementsByTagName("li")
+        console.log(lis instanceof Array,lis[1].innerHTML,lis.forEach)
+        const list=Array.prototype.slice.call(lis)
+        console.log(list instanceof Array,list[1].innerHTML,list.forEach)
+        //2 node.nodeType 得到节点类型
+        var elementNode=document.getElementById("t");
+        var attribute=elementNode.getAttributeNode("id");
+        var textNode=elementNode.firstChild;
+        console.log(elementNode.nodeType,attribute.nodeType,textNode.nodeType)
+        //3.Object.defineProperty(obj,propertyName,{})：给对象添加属性（指定描述符)
+        const obj={
+            firstName:"a",
+            lastName:"b"
+        }
+        //给obj添加fullName属性
+        /*
+            属性描述符
+            数据描述符
+            configurable 是否可以重新定义
+            enumerable:是否可以枚举(遍历查找)
+            value:初始值
+            writable：是否可以修改属性值
+            访问描述符
+            get:回调函数，根据其他相关属性动态计算得到当前属性值
+            set：回调函数,监视当前属性值的变化，更改其它相关的属性值
+        */
+        /*
+        */
+        Object.defineProperty(obj,"fullName",{
+            get(){
+                return this.firtName+"-"+this.lastName
+            },
+            set(value){
+                const name=value.split("-")
+                this.firtName=name[0];
+                this.lastName=name[1]
+            }
+        })
+        console.log(obj.fullName)
+        obj.firtName="c"
+        obj.lastName="d"
+        console.log(obj.fullName);
+        obj.fullName="e-f";
+        console.log(obj.firtName,obj.lastName)
+        Object.defineProperty(obj,"fullName2",{
+            configurable:false,
+            enumerable:true,
+            value:"m-n",
+            writable:true
+        })
+        console.log(obj.fullName2)
+        obj.fullName2="o-p";
+        console.log(obj.fullName2);
+      //4.Object.keys(obj):得到对象自身可枚举属性组成的数组
+      const names=Object.keys(obj);
+      console.log(names)
+      //5.obj.hasOwnProperty(prop):判断prop是否是obj自身的属性
+      console.log(obj.hasOwnProperty("firstName"),obj.hasOwnProperty("toString"))
+      //DocumentFragment:文档碎片(高效批量更新多个节点)
+      //document:对应显示的页面 包含n个element 一旦更新document内部的某个元素页面更新
+      //documentFragment:内存中保存n个element的容器对象(不与界面关联)，如果更新fragment的某个元素，界面不变
+        /*
+         <ul id="m">
+        <li >test1</li>
+        <li>test2</li>
+        <li>test3</li>
+        <li>test4</li>
+        </ul>
+        */
+        const ul=document.getElementById("m");
+        //1.创建fragment
+        var fragment=document.createDocumentFragment();
+        //取出ul中所有的子节点放到fragment中
+        var child;
+        while(child=ul.firstChild){ //一个节点只能有一个父亲
+            fragment.appendChild(child) //先将child从ul中移除，添加为fragment的子节点
+        }
+        //取出fragmemt中所有li的文本
+       /* Array.prototype.slice.call(fragment.childNodes).forEach(item=>{
+            if(item.nodeType===1){
+                item.innerHTML="ahkei"
+            }
+        })*/
+       Array.prototype.slice.call(fragment.children).forEach(item=>{
+           item.innerHTML="ahhle"
+       })
+        //将fragment放入ul中
+        ul.appendChild(fragment)
+    </script>
+</body>
+</html>

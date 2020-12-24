@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/shopList/shopList",
+    "pages/message/message",
+    "pages/person/person"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff6600",
+    "navigationBarTitleText": "学子商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "pages/img/tabs/home.png",
+      "selectedIconPath": "pages/img/tabs/home-active.png"
+    },
+    {
+      "pagePath": "pages/message/message",
+      "text": "消息",
+      "iconPath": "pages/img/tabs/message.png",
+      "selectedIconPath": "pages/img/tabs/message-active.png"
+    },
+    {
+      "pagePath": "pages/person/person",
+      "text": "我的",
+      "iconPath": "pages/img/tabs/profile.png",
+      "selectedIconPath": "pages/img/tabs/profile-active.png"
+    },
+    {
+      "pagePath": "pages/shopList/shopList",
+      "text": "联系我",
+      "iconPath": "pages/img/tabs/contact.png",
+      "selectedIconPath": "pages/img/tabs/contact-active.png"
+    }
+  ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
